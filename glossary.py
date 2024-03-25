@@ -1,3 +1,5 @@
+import pandas as pd
+
 yahoo_watchlist_dictionary = {'канадський долар': 'CADUSD%3DX',
                               'австралійський долар': 'AUDUSD%3DX',
                               'швейцарський франк': 'CHFUSD%3DX',
@@ -26,16 +28,64 @@ currencies_cross_course_dictionary = {'CAD/USD': 'cad-usd-technical',
                                       'TRY/USD': 'try-usd-technical',
                                       'MXN/USD': 'mxn-usd-technical',
                                       'PLN/USD': 'pln-usd-technical'
-                                     }
+                                      }
 
-countries_dict = {'CAD': ['Canada', 'CAN'],
-                  'AUD': ['Australia', 'AUS'],
-                  'CHF': ['Switzerland', 'SWZ', ],
-                  'GBP': ['United Kingdom', 'UKD'],
-                  'JPY': ['Japan', 'JPN'],
-                  'NZD': ['New Zealand',  'NWZ'],
-                  'ZAR': ['South Africa', 'SAF'],
-                  'TRY': ['Turkiye', 'TKY'],
-                  'MXN': ['Mexico', 'MEX'],
-                  'PLN': ['Poland', 'POL']
-                  }
+dict_to_df = {'country_name': ['Canada',
+                               'Australia',
+                               'Switzerland',
+                               'United Kingdom',
+                               'Japan',
+                               'New Zealand',
+                               'South Africa',
+                               'Turkiye',
+                               'Mexico',
+                               'Poland'],
+
+              'country_name_abbv': ['CAN',
+                                    'AUS',
+                                    'SWZ',
+                                    'UKD',
+                                    'JPN',
+                                    'NWZ',
+                                    'SAF',
+                                    'TKY',
+                                    'MEX',
+                                    'POL'],
+
+              'country_currency': ['CAD',
+                                   'AUD',
+                                   'CHF',
+                                   'GBP',
+                                   'JPY',
+                                   'NZD',
+                                   'ZAR',
+                                   'TRY',
+                                   'MXN',
+                                   'PLN']
+
+              }
+
+criteria = {'criteria_name': ['power_index',
+                              'value',
+                              'delta_perc',
+                              'recommendation',
+                              'buy',
+                              'neutr',
+                              'sell',
+                              'happiness_score',
+                              'economy_score'],
+            'optimize': ['min',
+                         'max',
+                         'max',
+                         'max',
+                         'max',
+                         'min',
+                         'min',
+                         'max',
+                         'max'
+                         ]
+            }
+
+if __name__ == '__main__':
+    countries_df = pd.DataFrame.from_dict(dict_to_df)
+    print(countries_df)

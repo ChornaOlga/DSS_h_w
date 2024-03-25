@@ -1,0 +1,41 @@
+Column description:
+
+country_name: name of the country
+country_name_abbv: abbreviated name of the country
+rank: the country's military rank based on 2023 powrindx score (lower number is stronger militarily)
+power_index: the country's 2023 powrindx score (lower number is stronger militarily)
+active_mil_personnel: number of country's active military personnel in 2023
+reserve_mil_personnel: number of country's reserve military personnel in 2023
+paramilitary: number of country's paramilitary personnel in 2023
+air_force_personnel: number of country's air force personnel in 2023
+army_personnel: number of country's army personnel in 2023
+navy_personnel: number of country's navy personnel in 2023
+total_aircraft: number of military aircrafts owned in 2023
+aircrafts_ready: number of military aircrafts owned that are ready in 2023
+fighter_aircrafts: number of fighter aircrafts owned in 2023
+fighter_aircrafts_ready: number of fighter aircrafts owned that are ready in 2023
+attack_type_aircrafts: number of attack type aircrafts owned in 2023
+attack_type_aircrafts_ready: number of attack type aircrafts owned that are ready in 2023
+helicopters: number of helicopters owned in 2023
+helicopters_ready: number of helicopters owned that are ready in 2023
+attack_helicopters: number of attack helicopters owned in 2023
+attack_helicopters_ready: number of attack helicopters owned that are ready in 2023
+tanks: number of tanks owned in 2023
+tanks_ready: number of tanks owned that are ready in 2023
+self_propelled_artillery: number of self-propelled artilleries owned in 2023
+self_propelled_artillery_ready: number of self-propelled artilleries owned that are ready in 2023
+towed_artillery: number of towed artilleries owned in 2023
+towed_artillery_ready: number of towed artilleries owned that are ready in 2023
+rocket_artillery: number of rocket artillery owned in 2023
+rocket_artillery_ready: number of rocket artilleries owned that are ready in 2023
+aircraft_carriers: number of aircraft carriers owned in 2023
+destroyers: number of destroyer vessels owned in 2023
+frigates: number of frigate vessels owned in 2023
+corvettes: number of corvette vessels owned in 2023
+submarines: number of submarines owned in 2023
+patrol_vessels: number of patrol vessels owned in 2023
+mine_warfare: number of mine warfare vessels owned in 2023
+ppp_billion_usd: the country's purchasing power parity in billion USD in 2023
+defense_budget_million_usd: the country's defense budget in million USD in 2023
+
+Data from https://www.kaggle.com/datasets/andrimzain/2023-military-strength-dataset
