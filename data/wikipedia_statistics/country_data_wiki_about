@@ -1,0 +1,26 @@
+About Dataset
+Dataset Description: Wikipedia World Statistics (2023)
+This dataset provides a comprehensive snapshot of global country statistics for the year 2023. It was scraped from various Wikipedia pages using BeautifulSoup, consolidating key indicators and metrics for 142 countries. The dataset covers diverse aspects such as land area, water area, Human Development Index (HDI), GDP forecasts, internet usage, and population changes.
+
+Key Columns and Metrics:
+Country: The name of the country.
+Total in km2: Total area of the country.
+Land in km2: Land area excluding water bodies.
+Water in km2: Area covered by water bodies.
+Water %: Percentage of the total area covered by water.
+HDI: Human Development Index, a measure of a country's overall achievement in its social and economic dimensions.
+%HDI Growth: Percentage growth in HDI.
+IMF Forecast GDP(Nominal): International Monetary Fund's forecast for Gross Domestic Product in nominal terms.
+World Bank Forecast GDP(Nominal): World Bank's forecast for Gross Domestic Product in nominal terms.
+UN Forecast GDP(Nominal): United Nations' forecast for Gross Domestic Product in nominal terms.
+IMF Forecast GDP(PPP): IMF's forecast for Gross Domestic Product in purchasing power parity terms.
+World Bank Forecast GDP(PPP): World Bank's forecast for Gross Domestic Product in purchasing power parity terms.
+CIA Forecast GDP(PPP): Central Intelligence Agency's forecast for Gross Domestic Product in purchasing power parity terms.
+Internet Users: Number of internet users in the country.
+UN Continental Region: Continental region classification by the United Nations.
+UN Statistical Subregion: Statistical subregion classification by the United Nations.
+Population 2022: Population of the country in the year 2022.
+Population 2023: Population of the country in the year 2023.
+Population %Change: Percentage change in population from 2022 to 2023.
+
+Data from https://www.kaggle.com/datasets/jiteshkumarsahoo/wikipedia-country-statistics-2023

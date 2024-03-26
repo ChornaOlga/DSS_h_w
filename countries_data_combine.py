@@ -48,7 +48,8 @@ def url_parse(url):
         price_change = soup.find('span', attrs={'data-test': 'instrument-price-change-percent'}).get_text()
         asset_list.append(str_to_float(price_change))
         recomendation = soup.find('div',
-                                  class_=re.compile('mb-6 mt-1 rounded-full px-4 py-1.5 text-center -mt-2.5 font-semibold leading-5 text-white')).get_text()
+                                  class_=re.compile(
+                                      'mb-6 mt-1 rounded-full px-4 py-1.5 text-center -mt-2.5 font-semibold leading-5 text-white')).get_text()
         asset_list.append(convert(recomendation))
         badges = soup.body.find('div', {'class': 'flex items-center gap-x-4 text-xs md2:gap-x-3.5 lg:gap-x-4'})
         for span in badges.find_all('span', class_=re.compile('font-bold')):
@@ -56,6 +57,7 @@ def url_parse(url):
             asset_list.append(str_to_float(indicators_number))
 
     return asset_list
+
 
 def extract_mil_df():
     mil_df = pd.read_csv('data/military/military_data_2023.csv')
@@ -81,6 +83,29 @@ def extract_economy_df():
                        value='Turkiye', inplace=True)
 
     return economy_df
+
+
+def extract_wiki_stat_df():
+    wiki_stat_df = pd.read_csv('data/wikipedia_statistics/Country_data.csv')
+
+    wiki_stat_df.rename(columns={'Country': 'country_name',
+                                 '%HDI Growth': 'human_development_index_growth',
+                                 'IMF Forecast GDP(PPP)': 'IMF_Forecast_GDP',
+                                 'World Bank Forecast GDP(PPP)': 'World_Bank_Forecast_GDP',
+                                 'CIA Forecast GDP(PPP)': 'CIA_Forecast_GDP',
+                                 'Population %Change': 'population_growth'}, inplace=True)
+
+    wiki_stat_df = wiki_stat_df[['country_name',
+                                 'human_development_index_growth',
+                                 'IMF_Forecast_GDP',
+                                 'World_Bank_Forecast_GDP',
+                                 'CIA_Forecast_GDP',
+                                 'population_growth']]
+
+    # economy_df.replace(to_replace='Turkey',
+    #                    value='Turkiye', inplace=True)
+
+    return wiki_stat_df
 
 
 def extract_invest_df():
@@ -118,8 +143,8 @@ def expand_df(df_to_expand, func, on_column):
     expanded_df = df_to_expand.join(df_to_add.set_index(on_column), on=on_column)
     return expanded_df
 
-def create_country_scoring_matrix(file_to_write):
 
+def create_country_scoring_matrix(file_to_write):
     # create initial dataframe
     countries_df = pd.DataFrame.from_dict(dict_to_df)
 
@@ -128,6 +153,7 @@ def create_country_scoring_matrix(file_to_write):
     combine_df = expand_df(combine_df, extract_invest_df, on_column='country_currency')
     combine_df = expand_df(combine_df, extract_happiness_df, on_column='country_name')
     combine_df = expand_df(combine_df, extract_economy_df, on_column='country_name')
+    combine_df = expand_df(combine_df, extract_wiki_stat_df, on_column='country_name')
 
     # dataframe crop, resize and transpond
     combine_df.drop(['country_name', 'country_currency'], axis=1, inplace=True)
