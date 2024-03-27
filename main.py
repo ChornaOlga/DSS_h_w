@@ -1,5 +1,5 @@
-from voice_interface import main
+from scoring import scoring
 
 
 if __name__ == "__main__":
-    main()
+    scoring()
